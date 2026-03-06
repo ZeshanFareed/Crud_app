@@ -53,9 +53,9 @@ export default function Crud() {
 
         if (formData.index === "") {
 
-            let checkFilterUser = userData.filter((v) => v.uEmail == formData.uEmail || v.uPhone == formData.uPhone)
+            let checkFilterUser = userData.filter((v) => v.uEmail === formData.uEmail || v.uPhone === formData.uPhone)
 
-            if (checkFilterUser.length == 1) {
+            if (checkFilterUser.length === 1) {
 
                 toast.warn("Email or Phone Already Exists")
             }
@@ -84,9 +84,9 @@ export default function Crud() {
             let Editindex = formData.index;
             let copyData = userData;
 
-            let checkFilterUser = userData.filter((v, i) => (v.uEmail == formData.uEmail || v.uPhone == formData.uPhone) && i != Editindex)
+            let checkFilterUser = userData.filter((v, i) => (v.uEmail === formData.uEmail || v.uPhone === formData.uPhone) && i !== Editindex)
 
-            if (checkFilterUser.length == 0) {
+            if (checkFilterUser.length === 0) {
                 copyData[Editindex]['uName'] = formData.uName
                 copyData[Editindex]['uEmail'] = formData.uEmail
                 copyData[Editindex]['uPhone'] = formData.uPhone
@@ -116,7 +116,7 @@ export default function Crud() {
 
     let handleDelete = (indexNumber) => {
         // alert(indexNumber)
-        let FilterDataAfterDel = userData.filter((v, i) => i != indexNumber)
+        let FilterDataAfterDel = userData.filter((v, i) => i !== indexNumber)
         setUserData(FilterDataAfterDel)
 
         setFormData({
@@ -129,7 +129,7 @@ export default function Crud() {
     }
 
     let handleEdit = (indexNo) => {
-        let editData = userData.filter((v, i) => i == indexNo)[0]
+        let editData = userData.filter((v, i) => i === indexNo)[0]
         // console.log(editData)
         editData['index'] = indexNo  // 5 enteries le kr ayy ga
         // {uName: 'xeshan1', uEmail: 'xee@gmail.com', uPhone: '123456789yuk01', uMessage: 'ngjfdjj', index: 1}
